@@ -1,0 +1,219 @@
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cover {
+  width: 100%;
+  height: calc(100vh - 4.8rem);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+
+.cover .soccial-container {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  grid-gap: 1rem;
+  justify-items: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 3;
+}
+
+.cover .soccial-container .line {
+  height: 70%;
+  border-left: 0.1rem solid var(--white);
+}
+
+.cover .soccial-container .soccial-icons-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover .soccial-container .soccial-icons-container a {
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0.1rem solid var(--white);
+  border-radius: 50%;
+}
+
+.cover .info {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  position: relative;
+  z-index: 3;
+}
+
+.cover .info h2 {
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.cover .actions {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  width: 75%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  position: relative;
+  z-index: 3;
+}
+
+.cover .actions .houses-button,
+.cover .actions .apartments-button {
+  width: 5rem;
+  height: 5rem;
+  margin: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  border: 0.1rem solid var(--white);
+  border-radius: 50%;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.cover .actions .houses-button p,
+.cover .actions .apartments-button p {
+  font-size: 1.1rem;
+  transform: translateY(4rem);
+}
+
+.cover .select-container {
+  height: 5rem;
+  margin: 0 1rem;
+  padding: 1rem;
+  border: 0.1rem solid var(--white);
+  background: rgba(229, 229, 229, 0.2);
+  border-radius: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+
+.cover .select-container:hover {
+  background: rgba(229, 229, 229, 0.5);
+}
+
+.cover .search-button {
+  height: 5rem;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  color: var(--white);
+  border: 0.1rem solid var(--blue);
+  background: var(--blue);
+  border-radius: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0.9;
+
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+
+.cover .search-button:hover {
+  opacity: 1;
+}
+
+.cover .init-search-container {
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: relative;
+  z-index: 3;
+}
+
+.cover .init-search-container a {
+  height: 5rem;
+  padding: 1rem 2rem;
+  color: var(--white);
+  border: 0.1rem solid var(--blue);
+  background: var(--blue);
+  border-radius: 3rem;
+
+  opacity: 0.9;
+
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+
+.cover .init-search-container a:hover {
+  opacity: 1;
+}
+
+.cover .filter {
+  width: 100%;
+  height: 100%;
+  background-color: var(--text);
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
