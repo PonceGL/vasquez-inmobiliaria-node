@@ -23,5 +23,5 @@ app.use(require("./routes/index"));
 
 // Starting the server
 app.listen(app.get("port"), () => {
-  console.log(`Aplicación escuchando en http://localhost:${app.get("port")}`);
+  console.log(`Aplicación escuchando en el puerto ${app.get("port")}`);
 });
