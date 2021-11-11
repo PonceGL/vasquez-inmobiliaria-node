@@ -104,10 +104,6 @@ header .open-button {
   position: relative;
   z-index: 1001;
   transition: 0.3s ease-in-out all;
-  /* position: fixed;
-  top: 2rem;
-  right: 2rem;
-  z-index: 1001; */
 }
 header .open-button::after {
   content: "\2237";
@@ -132,19 +128,6 @@ header .close-button {
   right: 1rem;
   z-index: 1001;
   transition: 0.3s ease-in-out all;
-  /* width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  z-index: 1001; */
 }
 header .close-button::after {
   content: "\2715";
@@ -160,7 +143,7 @@ header img {
 
 header nav {
   width: 100vw;
-  padding: 4rem 1rem;
+  padding: 4rem 1rem 8rem;
   min-height: 100vh;
   background-color: var(--white);
 

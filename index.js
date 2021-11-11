@@ -1,7 +1,5 @@
-// Imports
 const express = require("express");
 const app = express();
-// const morgan = require("morgan");
 
 //settings
 app.set("port", process.env.PORT || 3000);
@@ -12,7 +10,6 @@ app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public/css"));
 
 //middlewares
-// app.use(morgan("dev"));
 app.use(express.json());
 
 // Set Templating Engine
