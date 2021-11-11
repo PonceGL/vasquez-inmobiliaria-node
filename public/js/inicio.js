@@ -8,48 +8,48 @@
 
   const housesContainer = document.getElementById("houses-container");
 
-  // fetch("https://api-vasquez.herokuapp.com/api/articulos/categoria/FERRETERIA")
-  // fetch("/api/casas")
-  //   .then((response) => response.json())
-  //   .then(({ data }) => {
-  //     console.log(data);
-  //     data
-  //       .map(
-  //         ({
-  //           address,
-  //           age,
-  //           bathrooms,
-  //           bottomMeasurement,
-  //           constructionSize,
-  //           description,
-  //           frontMeasurement,
-  //           levelsConstructed,
-  //           location,
-  //           mainPhotography,
-  //           morePictures,
-  //           parking,
-  //           preservation,
-  //           price,
-  //           rooms,
-  //           services,
-  //           subdivision,
-  //           terrainSize,
-  //           title,
-  //           typeOfProperty,
-  //           typeOfTransaction,
-  //           _id,
-  //         }) =>
-  //           (housesContainer.innerHTML = `
-  //             <div class="house">
-  //               <img src="${mainPhotography.url}" alt="Fotografía de ${title}">
-  //               <p class="title">${title}</p>
-  //               <p class="price">$${formatter.format(price)}</p>
-  //               <p class="address">${address}</p>
-  //             </div>
-  //           `)
-  //       )
-  //       .join("");
-  //   });
+  fetch("https://api-vasquez.herokuapp.com/api/articulos/categoria/FERRETERIA");
+  fetch("/api/casas")
+    .then((response) => response.json())
+    .then(({ data }) => {
+      console.log(data);
+      data
+        .map(
+          ({
+            address,
+            age,
+            bathrooms,
+            bottomMeasurement,
+            constructionSize,
+            description,
+            frontMeasurement,
+            levelsConstructed,
+            location,
+            mainPhotography,
+            morePictures,
+            parking,
+            preservation,
+            price,
+            rooms,
+            services,
+            subdivision,
+            terrainSize,
+            title,
+            typeOfProperty,
+            typeOfTransaction,
+            _id,
+          }) =>
+            (housesContainer.innerHTML = `
+              <div class="house">
+                <img src="${mainPhotography.url}" alt="Fotografía de ${title}">
+                <p class="title">${title}</p>
+                <p class="price">$${formatter.format(price)}</p>
+                <p class="address">${address}</p>
+              </div>
+            `)
+        )
+        .join("");
+    });
 })();
 
 // address: "1023 N Joels Pl, Los Angeles, Los Angeles County, CA 90012"
