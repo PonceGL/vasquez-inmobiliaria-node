@@ -1,18 +1,17 @@
 const { Router } = require("express");
 const router = Router();
 require("dotenv").config();
-const { MongoClient, ObjectID } = require("mongodb");
+// const { MongoClient, ObjectID } = require("mongodb");
 
-const client = new MongoClient(process.env.MONGO_URI);
+// const client = new MongoClient(process.env.MONGO_URI);
 
-const people = ["geddy", "neil", "alex"];
+console.log(process.env.DATABASE);
 
 router.get("/", (req, res) => {
   res.status(200).render("index", {
     title: "Vasquez Inmobiliaria",
     page: "Inicio | Vasquez Inmobiliaria",
     des: "Bienes Raíces, Casas y Departamentos en venta y renta, Asesores y Asesoría inmobiliaria",
-    people: people,
   });
 });
 
@@ -24,20 +23,20 @@ router.get("/casas", (req, res) => {
   });
 });
 
-router.get("/api/casas", async (req, res) => {
-  await client.connect();
-  const database = client.db(process.env.DATABASE);
-  const collection = database.collection("casas");
+// router.get("/api/casas", async (req, res) => {
+//   await client.connect();
+//   const database = client.db(process.env.DATABASE);
+//   const collection = database.collection("casas");
 
-  collection
-    .find()
-    .toArray()
-    .then((data) => {
-      res.status(200).json({ name: "Casas", total: data.length, data });
-    })
-    .catch((error) => {
-      console.log("Error: ", error);
-    });
-});
+//   collection
+//     .find()
+//     .toArray()
+//     .then((data) => {
+//       res.status(200).json({ name: "Casas", total: data.length, data });
+//     })
+//     .catch((error) => {
+//       console.log("Error: ", error);
+//     });
+// });
 
 module.exports = router;

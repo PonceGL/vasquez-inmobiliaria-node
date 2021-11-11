@@ -1,13 +1,20 @@
 // Imports
 const express = require("express");
-
 const app = express();
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
+
 //settings
 app.set("port", process.env.PORT || 3000);
+app.set("json spaces", 2);
 
 // Static Files
 app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public/css"));
+
+//middlewares
+app.use(morgan("dev"));
+app.use(express.json());
 
 // Set Templating Engine
 app.set("view engine", "ejs");

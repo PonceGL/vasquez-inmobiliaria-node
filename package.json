@@ -2,7 +2,7 @@
   "name": "vasquez-inmobiliaria-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js"
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "morgan": "^1.10.0"
   }
 }
