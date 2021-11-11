@@ -5,8 +5,6 @@ const { MongoClient, ObjectID } = require("mongodb");
 
 const client = new MongoClient(process.env.MONGO_URI);
 
-console.log(process.env.DATABASE);
-
 router.get("/", (req, res) => {
   res.status(200).render("index", {
     title: "Vasquez Inmobiliaria",

@@ -24,19 +24,25 @@
           <p>¿Qué tipo de inmueble estás buscando?</p>
         </div>
         <div class="actions">
-          <button type="button" class="houses-button" id="houses-button">
-            <p>Casas</p>
-          </button>
-          <button
-            type="button"
-            class="apartments-button"
-            id="apartments-button"
-          >
-            <p>Departamentos</p>
-          </button>
+          <div class="buttons-container">
+            <button type="button" class="houses-button" id="houses-button">
+              <p>Casas</p>
+            </button>
+            <button
+              type="button"
+              class="apartments-button"
+              id="apartments-button"
+            >
+              <p>Departamentos</p>
+            </button>
+          </div>
           <div class="select-container">
             <label for="subdivisions-select">Nuestros fraccionamientos:</label>
-            <select name="subdivisions-select" id="subdivisions-select">
+            <select
+              name="subdivisions-select"
+              class="subdivisions-select"
+              id="subdivisions-select"
+            >
               <option value="volvo">Volvo</option>
               <option value="saab">Saab</option>
               <option value="mercedes">Mercedes</option>
@@ -56,10 +62,17 @@
           alt="Fotografía de portada"
         />
       </section>
-      <p>Página de inicio</p>
-      <section class="houses-container" id="houses-container"></section>
+      <section class="main-section new-properties-container">
+        <h2>Nuevas propiedades</h2>
+        <section class="houses-container" id="houses-container"></section>
+      </section>
+      <section class="main-section we">
+        <h2>¿Porqué confiar en nosotros?</h2>
+        <div class="we-items-container" id="we-items-container"></div>
+      </section>
     </main>
     <%- include('partials/footer.ejs') %>
   </body>
   <script src="js/inicio.js"></script>
+  <script src="js/main.js"></script>
 </html>
