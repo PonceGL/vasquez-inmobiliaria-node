@@ -1,9 +1,30 @@
-const { Router } = require("express");
+const { Router, application } = require("express");
 const router = Router();
 require("dotenv").config();
-const { MongoClient, ObjectID } = require("mongodb");
 
+// MongoDB
+const { MongoClient } = require("mongodb");
 const client = new MongoClient(process.env.MONGO_URI);
+
+// Firebase
+const { initializeApp } = require("firebase/app");
+const admin = require("firebase-admin");
+const serviceAccount = require("../assets/serviceAccountKey.json");
+const firebaseConfig = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROYECT_ID,
+  storageBucket: process.env.FIREBASE_STOREGAE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGIN_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+};
+const firebase = initializeApp(firebaseConfig);
+const {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} = require("firebase/auth");
 
 router.get("/", (req, res) => {
   res.status(200).render("index", {
@@ -20,6 +41,35 @@ router.get("/casas", (req, res) => {
     des: "Casas en venta y renta",
   });
 });
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+router.get("/admin", (req, res) => {
+  admin
+    .auth()
+    .listUsers(1000)
+    .then((listUsersResult) => {
+      listUsersResult.users.forEach((userRecord) => {
+        // console.log("user", userRecord.toJSON());
+      });
+      if (listUsersResult.pageToken) {
+        // List next batch of users.
+        listAllUsers(listUsersResult.pageToken);
+      }
+    })
+    .catch((error) => {
+      console.log("Error listing users:", error);
+    });
+
+  res.status(200).render("admin", {
+    title: "Admin",
+    page: "Admin | Vasquez Inmobiliaria",
+    des: "Página de administración",
+  });
+});
+
+//  Api Routes ::::::::::::::::::::::::::::::::::
 
 router.get("/api/casas", async (req, res) => {
   await client.connect();
@@ -50,6 +100,56 @@ router.get("/api/fraccionamientos", async (req, res) => {
     })
     .catch((error) => {
       console.log("Error: ", error);
+    });
+});
+
+router.get("/api/firebase", (req, res) => {
+  const auth = getAuth();
+  res
+    .status(200)
+    .json({ name: "Firebase", firebase, auth, check: onAuthStateChanged });
+});
+
+//  Auth Routes ::::::::::::::::::::::::::::::::::
+
+router.get("/auth", (req, res) => {
+  res.status(200).render("auth", {
+    title: "Registro",
+    page: "Registro | Vasquez Inmobiliaria",
+    des: "Página de registro de usuario",
+  });
+});
+
+router.post("/auth", async (req, res) => {
+  const newUser = req.body;
+
+  const auth = getAuth();
+  createUserWithEmailAndPassword(auth, newUser.email, newUser.password)
+    .then((userCredential) => {
+      console.log("userCredential: ", userCredential);
+      res.status(200).json({ message: "success", user: userCredential.user });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      res.status(200).json({ message: errorMessage, errorCode });
+    });
+});
+
+router.post("/login", async (req, res) => {
+  const newUser = req.body;
+  console.log("newUser: ", newUser);
+
+  const auth = getAuth();
+  signInWithEmailAndPassword(auth, newUser.email, newUser.password)
+    .then((userCredential) => {
+      console.log("userCredential: ", userCredential);
+      res.status(200).json({ message: "success", user: userCredential.user });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      res.status(200).json({ message: errorMessage, errorCode });
     });
 });
 

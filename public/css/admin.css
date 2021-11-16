@@ -1,0 +1,297 @@
+:root {
+  --admin-main: #4797b1;
+  --admin-bg: #dfeff0;
+  --admin-text: #295e6a;
+  --admin-white: #f6f6f6;
+  --admin-strong: #226675;
+  --admin-focus: #ff00b2;
+  --admin-gradient: linear-gradient(
+    to right,
+    #50c9c3 0%,
+    #96deda 51%,
+    #50c9c3 100%
+  );
+  --admin-ring-right: #fbda61;
+  --admin-ring-left: #ff5acd;
+}
+
+[data-theme="dark"] {
+  --admin-main: #f0a500;
+  --admin-bg: #2c3741;
+  --admin-text: #e6e6e6;
+  --admin-white: #041725;
+  --admin-strong: #000000;
+  --admin-focus: #16c79a;
+  --admin-gradient: linear-gradient(
+    to right,
+    #606c88 0%,
+    #3f4c6b 51%,
+    #606c88 100%
+  );
+  --admin-ring-right: #00dbde;
+  --admin-ring-left: #fc00ff;
+}
+
+.AdminHeader {
+  grid-column: 1 / span 1;
+  width: 100%;
+  height: 100%;
+  padding-left: 3rem;
+  display: grid;
+  grid-column: 100%;
+  grid-template-rows: 1fr 2fr 1fr;
+  justify-items: center;
+  align-items: center;
+  transition: 0.3s ease-in-out all;
+}
+
+.LogoContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  transition: 0.3s ease-in-out all;
+}
+
+.LogoProvisional {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--admin-main);
+  border-radius: 2rem;
+  position: relative;
+  transition: 0.3s ease-in-out all;
+}
+
+.LogoProvisional::after {
+  content: "\0056";
+  font-size: 5rem;
+  line-height: 5rem;
+  color: var(--admin-bg);
+  text-align: center;
+  position: absolute;
+  left: 0.4rem;
+  transition: 0.3s ease-in-out all;
+}
+
+.LogoProvisional::before {
+  content: "\0047";
+  font-size: 5rem;
+  color: var(--admin-bg);
+  line-height: 5rem;
+  text-align: center;
+  position: absolute;
+  right: 0.2rem;
+  transition: ease-in-out 0.3s all;
+}
+
+.TextDate {
+  font-size: 2rem;
+  margin: 2rem 0 0;
+  transition: 0.3s ease-in-out all;
+  color: var(--admin-text);
+}
+
+/* Menu */
+
+.AdminNav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdminNav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.ListItem {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ListItem a {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: var(--admin-text);
+  transition: 0.3s ease-in-out all;
+}
+
+.ListItem a:hover {
+  color: var(--admin-main);
+}
+
+/* Aside */
+
+.AdminAside {
+  grid-column: 3 / span 1;
+  width: 100%;
+  height: 100%;
+  padding-right: 3rem;
+  display: grid;
+  grid-column: 100%;
+  grid-template-rows: 1fr 2fr 1fr;
+  justify-items: center;
+  align-items: center;
+  transition: 0.3s ease-in-out all;
+}
+
+.TopButtonsContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  transition: 0.3s ease-in-out all;
+}
+
+.ButtonChangeTheme {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  color: var(--admin-text);
+  transform: translateY(-2rem);
+  transition: 0.3s ease-in-out all;
+}
+
+.ButtonChangeTheme:hover {
+  transform: translateY(-2rem) rotate(45deg);
+}
+
+.ChangeWidth {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--admin-text);
+  transform: translateY(-2rem);
+  transition: 0.3s ease-in-out all;
+}
+.ChangeWidth:hover {
+  color: var(--admin-main);
+}
+
+.AdminAsideMenu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdminAsideMenu ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdminAsideMenu ul li {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.AdminAsideMenu ul li a {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: var(--admin-text);
+  transition: 0.3s ease-in-out all;
+}
+
+.AdminAsideMenu ul li a:hover {
+  color: var(--admin-main);
+}
+
+.AdminAsideMenu .ButtonExit {
+  padding: 0.5rem 1rem;
+  background-color: var(--admin-bg);
+  color: var(--admin-text);
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: ease-in-out 0.3s all;
+}
+
+.AdminAsideMenu .ButtonExit:hover {
+  background-color: var(--admin-main);
+  color: var(--admin-bg);
+}
+
+/* Main */
+
+.Container {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  color: var(--admin-text);
+  background-color: var(--admin-white);
+  transition: 0.3s ease-in-out all;
+}
+
+.Admin-Main {
+  grid-column: 2 / span 1;
+  width: 100%;
+  height: 98vh;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  grid-gap: 4rem;
+  justify-items: center;
+  align-items: center;
+  background-color: var(--admin-bg);
+  border-radius: 2rem;
+  transition: ease-in-out 0.3s all;
+
+  overflow-y: scroll;
+}
+
+.Admin-Main::-webkit-scrollbar {
+  display: none;
+}

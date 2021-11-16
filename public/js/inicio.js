@@ -9,7 +9,8 @@
   const weContainer = document.getElementById("we-items-container");
   const subdivisionsSelect = document.getElementById("subdivisions-select");
 
-  fetch("/api/casas")
+  window
+    .fetch("/api/casas")
     .then((response) => response.json())
     .then(({ data }) => {
       const housesList = [];
@@ -96,10 +97,10 @@
 
   // Lista de Facrionamientos
 
-  fetch("/api/fraccionamientos")
+  window
+    .fetch("/api/fraccionamientos")
     .then((response) => response.json())
     .then(({ data }) => {
-      console.log(data);
       data
         .map(
           ({ name }) =>
